@@ -1,0 +1,41 @@
+#hotelsSearch {
+  @apply min-h-[75vh] h-fit bg-cover bg-no-repeat bg-center relative;
+
+  background-image: url(../../../../../assets/images/hotels/hotels-search-bg.jpg);
+
+  .layout {
+    @apply absolute inset-0 bg-black bg-opacity-70 flex justify-center items-center flex-col px-2;
+
+    .head {
+      @apply text-white mb-5;
+
+      h2 {
+        @apply lg:text-5xl lg:font-extrabold capitalize mb-1.5 text-2xl font-normal;
+      }
+    }
+
+    form {
+      .controls {
+        @apply flex items-center flex-wrap  lg:flex-nowrap gap-x-4 mb-5 bg-blue p-3 rounded-md  bg-opacity-70;
+        .control {
+          @apply mb-6 lg:mb-0 w-full relative;
+
+          label {
+            @apply block mb-2 text-base font-medium text-white capitalize;
+            i {
+              @apply me-1;
+            }
+          }
+
+          input {
+            @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue focus:border-blue block w-full p-2.5 outline-none;
+          }
+        }
+      }
+
+      .submit-btn {
+        @apply w-full flex justify-center items-center;
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+#ciyWeatherBox {
+  @apply w-[1200px] max-w-full mx-auto my-10 p-6 border border-blue border-opacity-20 rounded-lg  flex justify-between;
+
+  .content {
+    @apply w-8/12 px-2;
+
+    .head {
+      @apply flex justify-between items-center flex-wrap;
+      p {
+        @apply text-lg capitalize first-of-type:text-blue first-of-type:font-medium first-of-type:hover:tracking-wider text-gray-500 transition-all;
+        i {
+          @apply text-gold me-1;
+        }
+      }
+    }
+
+    .current {
+      @apply my-10 w-fit mx-auto text-center;
+
+      h2 {
+        @apply text-[150px] w-fit text-blue  mx-auto font-medium relative after:absolute after:-right-5 after:-top-10 after:content-['°'];
+
+        .info {
+          @apply absolute w-fit text-sm -right-32 top-1/3 text-gold;
+          p {
+            @apply lowercase mb-2 text-base flex items-center justify-start flex-row w-[120px];
+
+            i {
+              @apply me-4;
+            }
+          }
+        }
+      }
+
+      p {
+        @apply text-3xl capitalize tracking-wider text-gray-500 font-medium;
+      }
+    }
+
+    .next {
+      @apply py-2 flex justify-around;
+
+      div {
+        @apply w-[200px] text-center text-gray-500 border border-blue border-opacity-20 rounded-lg py-1 shadow;
+
+        h4 {
+          @apply text-xl;
+        }
+
+        h5 {
+          @apply my-1 text-3xl text-blue;
+        }
+      }
+    }
+  }
+
+  .side {
+    @apply w-3/12 px-2 text-center border-l-[1px] border-gray-500 border-opacity-40;
+
+    h2 {
+      @apply text-3xl text-blue font-medium capitalize mb-4;
+    }
+
+    p {
+      @apply w-[240px] max-w-full text-start mx-auto text-blue last-of-type:mb-7;
+      span {
+        @apply inline-block me-2.5 mb-4  max-w-full text-gray-600 capitalize;
+
+        &:after {
+          content: "\f178";
+          font-family: "Font Awesome 6 Free";
+          font-weight: 900;
+          margin-left: 4px;
+          @apply text-gold;
+        }
+      }
+    }
+  }
+}

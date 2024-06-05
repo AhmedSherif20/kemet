@@ -1,0 +1,18 @@
+<section id="facilities">
+    <div class="container">
+        <div class="text-center">
+            <h4 class="sub-title">PARADISE HOTEL</h4>
+            <h2 class="title">Main Facilities</h2>
+        </div>
+
+
+        <div class="facilities">
+            <div class="facilitiy" *ngFor="let item of hotelFacilities">
+                <i [class]="item.icon"></i>
+                <h2>{{item.name}}</h2>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.</p>
+            </div>
+        </div>
+
+    </div>
+</section>

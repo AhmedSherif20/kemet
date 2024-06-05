@@ -1,0 +1,42 @@
+header {
+  @apply bg-blue h-32 md:h-48 lg:h-60 bg-cover bg-bottom relative mb-8;
+
+  background-image: url("../../../../../assets/images/currencies/cover.webp");
+
+  .layout {
+    @apply absolute inset-0 bg-black bg-opacity-70 text-white flex justify-center items-center;
+
+    h2 {
+      @apply text-3xl md:text-4xl lg:text-5xl font-medium uppercase tracking-widest;
+    }
+  }
+}
+
+.selection {
+  @apply w-full md:w-9/12 mx-auto flex justify-evenly items-center md:items-end my-5 border-b pb-5 flex-col md:flex-row;
+  .control {
+    @apply w-[225px] sm:w-[300px] lg:w-[375px] max-w-full mb-3 md:mb-0;
+
+    label {
+      @apply text-blue uppercase;
+    }
+  }
+
+  i {
+    @apply text-blue text-3xl hidden md:block;
+  }
+}
+
+.result {
+  @apply w-full md:w-9/12 mx-auto flex justify-evenly items-center  flex-col md:flex-row py-5 border-b mb-1;
+  h3 {
+    @apply text-5xl tracking-wider lg:min-w-[30%] text-center font-semibold opacity-80;
+  }
+  i {
+    @apply text-blue text-3xl;
+  }
+}
+
+.time {
+  @apply flex flex-col md:flex-row items-center justify-evenly text-xs mb-3 text-gray-600;
+}

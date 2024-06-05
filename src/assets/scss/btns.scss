@@ -1,0 +1,23 @@
+// <button type="button" class="text-white  rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Default</button>
+
+.btn {
+  @apply font-medium text-base rounded-[6px] px-5 py-2.5 me-2 last-of-type:me-0 transition-all capitalize;
+}
+
+.btn-outline {
+  @apply btn bg-transparent hover:text-white border;
+}
+
+.btn-blue {
+  @apply btn border-transparent border-solid border-2 text-white  bg-blue hover:text-blue hover:border-[#11487e] hover:bg-white  focus:ring-4 focus:ring-blue;
+}
+.btn-outline-blue {
+  @apply btn-outline text-[#11487e]  hover:bg-[#11487e] focus:ring-4 focus:ring-[#11487e]  border-[#11487e];
+}
+
+.btn-gold {
+  @apply btn border-transparent border-solid border-2 text-white bg-gold hover:bg-white hover:text-gold hover:border-gold focus:ring-4 focus:ring-gold;
+}
+.btn-outline-gold {
+  @apply btn-outline text-gold  hover:bg-gold focus:ring-4 focus:ring-gold  border-gold;
+}

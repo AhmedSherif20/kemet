@@ -1,0 +1,31 @@
+#facilities {
+  @apply mb-5;
+  .facilities {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-2 my-4;
+
+    .facilitiy {
+      @apply mb-3 lg:mb-0 text-center  py-3;
+
+      i {
+        @apply text-blue text-5xl mb-2 transition-all;
+      }
+
+      h2 {
+        @apply text-[#333] text-xl md:text-2xl mb-2 font-semibold capitalize transition-all;
+      }
+
+      p {
+        @apply w-9/12 mx-auto text-sm font-light;
+      }
+
+      &:hover {
+        i {
+          @apply rotate-45;
+        }
+        h2 {
+          @apply tracking-wider;
+        }
+      }
+    }
+  }
+}

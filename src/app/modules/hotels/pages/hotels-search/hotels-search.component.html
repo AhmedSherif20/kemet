@@ -1,0 +1,52 @@
+<section id="hotelsSearch">
+    <div class="layout">
+        <div class="container">
+            <div class="head">
+                <h2>Find your next stay</h2>
+                <p>Search low prices on hotels, homes and much more...</p>
+            </div>
+
+            <form>
+                <div class="controls">
+                    <!-- =============== city ===============  -->
+                    <div class="control">
+                        <label for="Country"><i class="fa-solid fa-location-dot"></i> City </label>
+                        <ng-select appearance="outline" [searchable]="true" [clearable]="true" labelForId="city"
+                            placeholder="choose a city from here">
+                            <ng-option [value]="city" *ngFor="let city of citiesArr">
+                                <span class="capitalize">{{city}}</span>
+                            </ng-option>
+                        </ng-select>
+                        <!-- <p class="error" *ngIf="hasError('Country' , 'required')">Country is required</p> -->
+                    </div>
+
+                    <!-- =============== arrive date ===============  -->
+                    <div class="control">
+                        <label for="startDate"><i class="fa-solid fa-plane-arrival"></i> Arrive Date</label>
+                        <input type="date" id="startDate" placeholder="12/12/2020" [value]="today" />
+                        <!-- <p class="error" *ngIf="hasError('Date_of_Birth' , 'required')">Date of birth is required</p> -->
+                    </div>
+
+                    <!-- =============== leave date ===============  -->
+                    <div class="control">
+                        <label for="endDate"><i class="fa-solid fa-plane-departure"></i> Leave Date</label>
+                        <input type="date" id="endDate" placeholder="19/12/2020" />
+                        <!-- <p class="error" *ngIf="hasError('Date_of_Birth' , 'required')">Date of birth is required</p> -->
+                    </div>
+
+                    <!-- =============== guest numbers ===============  -->
+                    <div class="control">
+                        <label for="guestNum"><i class="fa-solid fa-users"></i> Number of guests</label>
+                        <input type="number" id="guestNum" placeholder="1" [min]="1" value="1" />
+                        <!-- <p class="error" *ngIf="hasError('First_Name' , 'required')">First name is required</p> -->
+                    </div>
+                </div>
+
+
+                <div class="submit-btn">
+                    <button class="btn-gold w-[200px]" routerLink="search">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,22 @@
+#topbar {
+  @apply bg-[#11487E] py-2 text-white px-12 hidden md:block;
+
+  .content {
+    @apply mx-auto flex justify-between items-center;
+
+    p {
+      @apply text-xs font-medium text-white;
+
+      i {
+        @apply mr-[2px] text-[#B1915F];
+      }
+    }
+
+    .left {
+      @apply flex;
+      p {
+        @apply first-of-type:mr-4;
+      }
+    }
+  }
+}

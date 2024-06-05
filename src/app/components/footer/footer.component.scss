@@ -1,0 +1,40 @@
+footer {
+  @apply bg-blue text-white relative overflow-hidden;
+
+  .logo {
+    // @apply text-center py-5;
+    @apply mx-auto pt-10 pb-5 mb-5 w-fit  tracking-widest  relative text-gold text-6xl after:content-[''] after:absolute after:right-[-4px] after:bottom-7 after:w-2.5 after:h-2.5 after:rounded-full after:bg-gold;
+  }
+
+  .layout {
+    @apply max-w-[1200px] mx-auto border-t-[1px] border-t-gray-400 z-[3] px-2 lg:px-0;
+
+    .cols {
+      @apply py-10  flex justify-between items-start flex-col md:flex-row flex-wrap;
+      .col {
+        @apply w-full sm:w-1/2 lg:w-fit mb-5 lg:mb-0;
+        h3 {
+          @apply text-gold font-semibold tracking-wider text-xl capitalize mb-3.5;
+        }
+
+        a {
+          @apply text-gray-400 hover:text-white transition-all block mb-2 w-fit capitalize font-medium relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[1px] after:w-0 after:bg-white after:hover:w-full transition-all after:transition-all;
+
+          i {
+            @apply me-1 transition-all;
+          }
+
+          &:hover {
+            i {
+              @apply me-2;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .copy-right {
+    @apply bg-blue bg-opacity-20 text-center py-3;
+  }
+}

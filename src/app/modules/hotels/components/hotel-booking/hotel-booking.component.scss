@@ -1,0 +1,54 @@
+#hotel-booking {
+  .content {
+    @apply grid grid-cols-1 lg:grid-cols-11 gap-x-6;
+
+    .left {
+      @apply col-span-4;
+
+      p {
+        @apply my-6 text-sm text-[#333] w-9/12;
+      }
+
+      a {
+        @apply flex justify-start items-center gap-x-2 hover:translate-x-2 transition-all w-fit;
+
+        i {
+          @apply text-2xl text-gold;
+        }
+
+        p {
+          @apply flex flex-col w-full;
+
+          span {
+            @apply block first-of-type:text-sm first-of-type:tracking-widest first-of-type:text-[#333] last-of-type:text-gold font-semibold last-of-type:text-base;
+          }
+        }
+      }
+    }
+    .right {
+      @apply col-span-7 grid grid-cols-4 p-3 rounded-md h-fit bg-blue gap-x-3 gap-y-3;
+
+      .room {
+        @apply col-span-2;
+      }
+
+      .counter {
+        label {
+          @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+        }
+
+        .input {
+          @apply bg-white rounded-md p-1 flex items-center justify-start;
+
+          span {
+            @apply block me-auto;
+          }
+
+          i {
+            @apply text-gold text-lg first-of-type:mx-2 cursor-pointer;
+          }
+        }
+      }
+    }
+  }
+}

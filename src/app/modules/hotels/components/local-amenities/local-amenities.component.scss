@@ -1,0 +1,32 @@
+section {
+  @apply my-10 py-10;
+  .content {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-x-10 first-of-type:mb-16 first-letter:text-left last-of-type:text-right;
+
+    .desc {
+      @apply flex flex-col justify-center items-start;
+      p {
+        @apply w-3/4 mt-4 mb-6;
+      }
+    }
+
+    &.right {
+      .desc {
+        @apply items-end order-2 md:order-1;
+        p {
+          @apply ms-auto;
+        }
+      }
+
+      .img {
+        @apply order-1 md:order-2;
+      }
+    }
+
+    .img {
+      img {
+        @apply rounded-md mb-5 md:mb-0;
+      }
+    }
+  }
+}

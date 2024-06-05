@@ -1,0 +1,68 @@
+<div id="hotel-booking">
+    <div class="container">
+        <div class="content">
+            <div class="left">
+                <h4 class="sub-title">Booking HOTEL</h4>
+                <h2 class="title">Check Availability</h2>
+                <p>
+                    Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem
+                    sea, prima quidam vim no. Duo nobis persecuti cu.
+                </p>
+                <a href="tel:+1111111">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <p>
+                        <span>INFO AND BOOKINGS</span>
+                        <span>+123455677889</span>
+                    </p>
+                </a>
+
+            </div>
+            <div class="right">
+                <div class="control room">
+                    <label for="room" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Select Your Room :
+                    </label>
+                    <ng-select appearance="outline" [searchable]="false" [clearable]="true" labelForId="room">
+                        <ng-option value="#">
+                            Junior Suite
+                        </ng-option>
+                        <ng-option value="#">
+                            Deluxe Room
+                        </ng-option>
+                        <ng-option value="#">
+                            Superior Room
+                        </ng-option>
+                    </ng-select>
+                    <!-- <p class="error" *ngIf="hasError('Gender' , 'required')">Gender is required</p> -->
+                </div>
+                <div class="control counter">
+                    <label for="room">
+                        Adults:
+                    </label>
+                    <div class="input">
+                        <span>{{adultsNum}}</span>
+                        <i class="fa-solid fa-minus" (click)="changeCounter('adultsNum' , '-')"></i>
+                        <i class="fa-solid fa-plus" (click)="changeCounter('adultsNum' , '+')"></i>
+                    </div>
+
+                </div>
+                <div class="control counter">
+                    <label for="room">
+                        Childs:
+                    </label>
+                    <div class="input">
+                        <span>{{childsNum}}</span>
+                        <i class="fa-solid fa-minus" (click)="changeCounter('childsNum' , '-')"></i>
+                        <i class="fa-solid fa-plus" (click)="changeCounter('childsNum' , '+')"></i>
+                    </div>
+
+                </div>
+
+                <div class="col-span-4 flex items-center justify-center">
+                    <button class="btn-outline-gold ">book now</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

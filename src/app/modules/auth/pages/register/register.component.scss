@@ -1,0 +1,63 @@
+.auth-page {
+  @apply bg-cover relative py-12;
+}
+
+.form-box {
+  @apply w-[500px] max-w-full mx-auto  pt-8 pb-12 px-6 rounded-md shadow-xl bg-white;
+
+  .title {
+    @apply mb-8 text-blue text-4xl font-medium uppercase tracking-widest text-center;
+  }
+
+  .control {
+    @apply mb-6 w-full relative;
+
+    label {
+      @apply block mb-2  text-sm font-medium text-gray-900 capitalize after:content-['*'] after:text-red-600 after:ms-1 after:font-bold;
+    }
+
+    input {
+      @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue focus:border-blue block w-full p-2.5 outline-none;
+    }
+
+    .error {
+      @apply text-sm capitalize text-red-600 font-medium text-center mb-0;
+    }
+
+    &.password {
+      i {
+        @apply text-blue absolute right-3 top-10 cursor-pointer;
+      }
+    }
+  }
+
+  .checkbox {
+    @apply flex items-center mb-6;
+
+    input {
+      @apply w-4 h-4 text-blue bg-gray-100 border-gray-300 rounded focus:ring-blue;
+    }
+
+    label {
+      @apply ms-2 text-base font-medium text-gray-900;
+    }
+  }
+
+  .submit-btn {
+    @apply flex justify-center items-center;
+  }
+
+  .links {
+    @apply flex justify-center items-center flex-col-reverse md:flex-row;
+    a {
+      @apply text-sm  mt-6 text-blue font-medium hover:underline;
+    }
+  }
+}
+
+.svg-bg {
+  @apply fixed hidden lg:block  top-[170px] left-[20px] w-[400px];
+}
+.svg-bg2 {
+  @apply fixed hidden lg:block top-[170px] right-[20px] w-[400px];
+}

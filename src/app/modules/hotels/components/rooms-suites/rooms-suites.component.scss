@@ -1,0 +1,49 @@
+#rooms {
+  @apply py-24 bg-[#FAF8F5] mb-10;
+
+  .rooms {
+    @apply grid grid-cols-1 lg:grid-cols-4 gap-x-5 mt-5;
+
+    .room {
+      @apply mb-3 h-[500px] bg-cover relative rounded-md overflow-hidden;
+
+      .wrapper {
+        @apply w-full h-full bg-black bg-opacity-25 absolute inset-0;
+      }
+
+      .content {
+        @apply absolute left-5 bottom-5 text-white transition-all;
+
+        p {
+          @apply text-xs uppercase font-semibold tracking-wider;
+        }
+
+        h3 {
+          @apply text-2xl capitalize font-semibold tracking-widest;
+        }
+      }
+
+      img {
+        @apply w-full h-full object-cover object-center transition duration-300;
+      }
+
+      &:hover {
+        img {
+          @apply scale-[1.1];
+        }
+
+        .content {
+          @apply bottom-10;
+        }
+      }
+
+      &:first-of-type {
+        @apply md:col-span-2;
+      }
+      &:nth-of-type(2) {
+      }
+      &:last-of-type {
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+#mainNav {
+  @apply flex justify-between items-center px-2 md:px-12 py-5 bg-white sticky top-0 z-[99] shadow-xl;
+
+  .brand {
+    @apply text-4xl tracking-widest uppercase;
+  }
+
+  .links {
+    // @apply bg-blue-600 flex;
+    @apply hidden lg:block;
+
+    a {
+      @apply me-9 last:me-0 text-gray-700 capitalize inline-block transition-all hover:text-[#11487E] hover:font-semibold hover:tracking-wider relative before:hover:w-full before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-0 before:h-[2px] before:bg-[#11487e] before:transition-all;
+
+      &.active {
+        @apply text-[#11487E] font-semibold before:content-[''] before:absolute before:bottom-0 before:left-0 before:w-full before:h-[2px] before:bg-[#11487e] before:transition-all tracking-wider;
+      }
+    }
+  }
+
+  .collapse-btn {
+    @apply block lg:hidden ms-3;
+  }
+}
+
+.example-container {
+  width: 400px;
+  height: 200px;
+  margin: 12px;
+  border: 1px solid #555;
+}
+
+#sideNav {
+  @apply fixed top-0 bottom-0 z-[999] left-[-250px] h-screen w-[250px] block lg:hidden bg-white overflow-hidden transition-all;
+
+  &.show {
+    @apply left-0;
+  }
+
+  .logo {
+    @apply text-4xl tracking-widest uppercase mx-auto w-fit mt-3 mb-4;
+  }
+
+  .links {
+    a {
+      @apply block px-2 py-2.5 capitalize text-gray-700 bg-white hover:text-white hover:bg-[#11487E] transition-all;
+
+      i {
+        @apply me-2 w-6  text-center;
+      }
+
+      &.active {
+        @apply text-white bg-[#11487E];
+      }
+    }
+  }
+}

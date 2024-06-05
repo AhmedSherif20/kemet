@@ -1,0 +1,116 @@
+#searchQueries {
+  @apply container grid grid-cols-4 gap-x-4 my-3;
+
+  .box {
+    @apply bg-opacity-80 p-3 rounded-md relative text-white capitalize;
+
+    i {
+      @apply absolute top-1/2 right-4 -translate-y-1/2 text-5xl;
+    }
+
+    p {
+      @apply font-medium mb-2 text-base;
+    }
+
+    h3 {
+      @apply text-3xl font-bold;
+    }
+  }
+}
+
+@mixin cardBg($class, $color) {
+  .#{$class} {
+    background: $color;
+  }
+}
+
+@include cardBg("green", linear-gradient(270deg, #4eda89, #1a9f53));
+@include cardBg("blue", linear-gradient(270deg, #64b3f6, #2b77e5));
+@include cardBg("yellow", linear-gradient(270deg, #f4d02b, #e1940e));
+@include cardBg("red", linear-gradient(270deg, #ed68ff, #be0ee1));
+
+#hotels {
+  @apply mt-5;
+  .container {
+    @apply border-t pt-4;
+  }
+
+  // h2 {
+  //   @apply text-4xl font-bold tracking-widest text-blue uppercase mb-3;
+  // }
+  .hotels-container {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5;
+
+    .hotel-card {
+      @apply mb-3 border border-gold  rounded-md overflow-hidden;
+
+      .image {
+        @apply overflow-hidden min-h-[225px] h-[225px] max-h-[225px];
+
+        img {
+          @apply w-full h-full object-cover;
+        }
+
+        &:hover {
+          img {
+            @apply scale-110 transition-all;
+          }
+        }
+
+        img {
+          @apply transition-all duration-500;
+        }
+      }
+
+      .content {
+        @apply px-2 py-3;
+
+        .title,
+        .info,
+        .description {
+          @apply border-b mb-3 pb-2;
+        }
+
+        .title {
+          h2 {
+            @apply text-blue font-bold tracking-wide text-xl transition-all;
+
+            &:hover {
+              @apply tracking-wider;
+            }
+          }
+
+          p {
+            @apply text-gray-500 text-sm font-medium;
+
+            i {
+              @apply me-0.5;
+            }
+          }
+        }
+
+        .info {
+          @apply flex justify-between items-center;
+
+          p {
+            @apply flex flex-col items-center;
+
+            span {
+              &:first-child {
+                @apply text-gray-500 text-sm font-medium uppercase;
+              }
+
+              &:last-child {
+                @apply text-blue font-bold text-2xl;
+              }
+            }
+          }
+        }
+
+        .btns {
+          @apply flex justify-center items-center;
+        }
+      }
+    }
+  }
+}

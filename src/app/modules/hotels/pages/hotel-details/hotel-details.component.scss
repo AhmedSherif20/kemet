@@ -1,0 +1,31 @@
+.header {
+  @apply min-h-[75vh] bg-cover bg-center bg-no-repeat relative;
+
+  background-image: url(../../../../../assets/images/hotels/hotel_room.jpg);
+
+  .layout {
+    @apply absolute inset-0 bg-black bg-opacity-60 flex justify-center items-center flex-col px-2 text-center;
+
+    p {
+      @apply text-[#ebd7b2] text-sm tracking-[0.5em] uppercase font-semibold;
+    }
+
+    h2 {
+      @apply uppercase font-bold text-xl md:text-2xl  lg:text-3xl xl:text-5xl my-5 text-white;
+    }
+
+    h4 {
+      @apply text-white font-normal text-lg md:text-xl lg:text-2xl leading-normal;
+    }
+  }
+}
+
+::ng-deep {
+  .sub-title {
+    @apply text-[#ebd7b2] text-xs tracking-widest md:tracking-[0.5em] uppercase font-semibold mb-1;
+  }
+
+  .title {
+    @apply text-[#333] text-2xl md:text-4xl font-bold;
+  }
+}
