@@ -1,0 +1,12 @@
+.loading {
+  @apply flex justify-center items-center flex-col my-5;
+  .spinner {
+    @apply mb-3;
+    svg {
+      @apply text-gray-200 animate-spin  fill-blue;
+    }
+  }
+  p {
+    @apply text-blue text-xl font-semibold tracking-widest relative after:absolute after:bottom-0 after:left-full after:content-['....'];
+  }
+}
