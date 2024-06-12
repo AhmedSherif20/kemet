@@ -1,0 +1,17 @@
+#findNearest {
+  @apply min-h-[90vh] bg-cover bg-center bg-no-repeat relative;
+
+  background-image: url(../../../../../assets/images/find-nearest/1.webp);
+
+  .layout {
+    @apply absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center flex-col px-2 text-white;
+
+    h2 {
+      @apply text-3xl md:text-5xl lg:text-8xl font-medium uppercase tracking-widest;
+    }
+
+    p {
+      @apply md:w-3/4 lg:w-1/2 text-center mx-auto max-w-full px-2 my-3 capitalize font-medium;
+    }
+  }
+}

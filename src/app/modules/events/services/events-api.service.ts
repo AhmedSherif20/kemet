@@ -13,4 +13,8 @@ export class EventsApiService {
   getAllEvents(): Observable<any> {
     return this._HttpClient.get(`${this.baseUrl}/show-events`);
   }
+
+  getEventDetails(id: string): Observable<any> {
+    return this._HttpClient.get(`${this.baseUrl}/get-event/${id}`);
+  }
 }

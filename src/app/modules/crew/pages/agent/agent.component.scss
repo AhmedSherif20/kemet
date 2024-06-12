@@ -1,0 +1,42 @@
+#agentData {
+  @apply h-full py-5 px-2;
+  .image {
+    @apply flex justify-center items-center flex-col;
+    img {
+      @apply w-28 h-28 rounded-full object-cover border-[2px] border-blue p-0.5 mb-2;
+    }
+
+    h2 {
+      @apply text-blue text-2xl font-bold relative;
+    }
+  }
+
+  .icon-data {
+    @apply grid grid-cols-2 gap-x-4 gap-y-1  w-fit mx-auto mb-4;
+
+    p {
+      @apply text-sm text-gray-500;
+      i {
+        @apply me-2 w-4 inline-flex justify-center items-center;
+      }
+    }
+  }
+
+  .description {
+    @apply border-t border-b py-3;
+    i {
+      @apply text-blue text-lg me-2;
+    }
+    span {
+      @apply capitalize tracking-wider leading-4;
+    }
+  }
+
+  .actions {
+    @apply flex justify-center items-center flex-col py-2 gap-y-4;
+
+    h3 {
+      @apply text-gold tracking-widest mb-4 text-xl capitalize;
+    }
+  }
+}

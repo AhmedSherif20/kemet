@@ -22,35 +22,35 @@
 
             <!-- =============== 3 Email ===============  -->
             <div class="control">
-                <label for="Email">Email address</label>
-                <input type="email" id="email" placeholder="john.doe@company.com" formControlName="Email" />
-                <p class="error" *ngIf="hasError('Email' , 'required')">email is required</p>
-                <p class="error" *ngIf="hasError('Email' , 'email')">email is invalid</p>
+                <label for="email">Email address</label>
+                <input type="email" id="email" placeholder="john.doe@company.com" formControlName="email" />
+                <p class="error" *ngIf="hasError('email' , 'required')">email is required</p>
+                <p class="error" *ngIf="hasError('email' , 'email')">email is invalid</p>
             </div>
 
             <!-- =============== 4 Password ===============  -->
             <div class="control password">
-                <label for="Password">password</label>
+                <label for="password">password</label>
                 <input [type]="showPassword  ? 'text' : 'password'" id="password" placeholder="**********"
-                    formControlName="Password" autocomplete="false" />
+                    formControlName="password" autocomplete="false" />
                 <i class="fa-solid" [ngClass]="showPassword  ? 'fa-eye-slash' : 'fa-eye'"
                     (click)="togglePassword()"></i>
-                <p class="error" *ngIf="hasError('Password' , 'required')">password is required</p>
-                <p class="error" *ngIf="hasError('Password' , 'minlength')">password Minimum length is 3</p>
+                <p class="error" *ngIf="hasError('password' , 'required')">password is required</p>
+                <p class="error" *ngIf="hasError('password' , 'minlength')">password Minimum length is 3</p>
             </div>
 
             <!-- =============== 5 Confirm Password ===============  -->
             <div class="control password">
-                <label for="Password">Confirm password</label>
-                <input [type]="showConfirmPassword  ? 'text' : 'password'" id="password" placeholder="**********"
+                <label for="cPassword">Confirm password</label>
+                <input [type]="showConfirmPassword  ? 'text' : 'password'" id="cPassword" placeholder="**********"
                     formControlName="cPassword" autocomplete="false" />
                 <i class="fa-solid" [ngClass]="showConfirmPassword  ? 'fa-eye-slash' : 'fa-eye'"
-                    (click)="togglePassword()"></i>
+                    (click)="toggleConfirmPassword()"></i>
                 <p class="error" *ngIf="hasError('cPassword' , 'required')">password is required</p>
                 <p class="error" *ngIf="hasError('cPassword' , 'minlength')">password Minimum length is 3</p>
             </div>
 
-            <!-- =============== 3 Phone Number ===============  -->
+            <!-- =============== 6 Phone Number ===============  -->
             <div class="control">
                 <label for="Phone_Number">Phone Number</label>
                 <input type="text" id="Phone_Number" placeholder="Ex: 002 0123456789" formControlName="Phone_Number" />
@@ -58,14 +58,14 @@
                 <p class="error" *ngIf="hasError('Phone_Number' , 'pattern')">Phone Number invalid</p>
             </div>
 
-            <!-- =============== 4 Address ===============  -->
+            <!-- =============== 7 Address ===============  -->
             <div class="control">
                 <label for="Address">Address</label>
                 <input type="text" id="Address" placeholder="**********" formControlName="Address" />
                 <p class="error" *ngIf="hasError('Address' , 'required')">Address is required</p>
             </div>
 
-            <!-- =============== 5 Country ===============  -->
+            <!-- =============== 8 Country ===============  -->
             <div class="control">
                 <label for="Country">Country</label>
                 <ng-select appearance="outline" [searchable]="true" [clearable]="true" labelForId="Country"
@@ -77,16 +77,16 @@
                 <p class="error" *ngIf="hasError('Country' , 'required')">Country is required</p>
             </div>
 
-            <!-- =============== 6 Date of birth ===============  -->
+            <!-- =============== 9 Date of birth ===============  -->
             <div class="control">
                 <label for="Date_of_Birth">Date of birth</label>
                 <input type="date" id="Date_of_Birth" placeholder="12/12/2020" formControlName="Date_of_Birth" />
                 <p class="error" *ngIf="hasError('Date_of_Birth' , 'required')">Date of birth is required</p>
             </div>
 
-            <!-- =============== 7 Gender ===============  -->
+            <!-- =============== 10 Gender ===============  -->
             <div class="control">
-                <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                <label for="Gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Select Your gender
                 </label>
                 <ng-select appearance="outline" [searchable]="false" [clearable]="true" labelForId="Gender"
@@ -101,16 +101,65 @@
                 <p class="error" *ngIf="hasError('Gender' , 'required')">Gender is required</p>
             </div>
 
-            <!-- =============== 8 Passport Number ===============  -->
+            <!-- =============== 11 Arrival Date ===============  -->
+            <div class="control">
+                <label for="arrival_time">Arrival Date</label>
+                <input type="datetime-local" id="arrival_time" placeholder="12/12/2020"
+                    formControlName="arrival_time" />
+                <p class="error" *ngIf="hasError('arrival_time' , 'required')">Arrival Date is required</p>
+            </div>
+
+            <!-- =============== 12 departure Date ===============  -->
+            <div class="control">
+                <label for="departure_time">departure Date</label>
+                <input type="datetime-local" id="departure_time" placeholder="12/12/2020"
+                    formControlName="departure_time" />
+                <p class="error" *ngIf="hasError('departure_time' , 'required')">departure Date is required</p>
+            </div>
+
+            <!-- =============== 13 Arrival Airport ===============  -->
+            <div class="control">
+                <label for="arrival_airport">Arrival Airport</label>
+                <ng-select appearance="outline" [searchable]="true" [clearable]="true" labelForId="arrival_airport"
+                    formControlName="arrival_airport">
+                    <ng-option [value]="airport" *ngFor="let airport of airportList">
+                        <span class="capitalize">{{airport}}</span>
+                    </ng-option>
+                </ng-select>
+                <p class="error" *ngIf="hasError('arrival_airport' , 'required')">Arrival Airport is required</p>
+            </div>
+
+            <!-- =============== 14 departure Airport ===============  -->
+            <div class="control">
+                <label for="departure_airport">departure Airport</label>
+                <ng-select appearance="outline" [searchable]="true" [clearable]="true" labelForId="departure_airport"
+                    formControlName="departure_airport">
+                    <ng-option [value]="airport" *ngFor="let airport of egyptAirportList">
+                        <span class="capitalize">{{airport}}</span>
+                    </ng-option>
+                </ng-select>
+                <p class="error" *ngIf="hasError('departure_airport' , 'required')">departure Airport is required</p>
+            </div>
+
+            <!-- =============== 15 Profile Picture ===============  -->
+            <div class="control">
+                <label for="Profile_Picture">Profile Picture</label>
+                <input type="text" id="Profile_Picture" placeholder="paste photo url"
+                    formControlName="Profile_Picture" />
+                <p class="error" *ngIf="hasError('Profile_Picture' , 'pattern')">Profile Picture invalid</p>
+
+            </div>
+
+            <!-- =============== 16 Passport Number ===============  -->
             <div class="control">
                 <label for="Passport_Number">Passport Number</label>
                 <input type="text" id="Passport_Number" placeholder="Ex: 002 0123456789"
                     formControlName="Passport_Number" />
                 <p class="error" *ngIf="hasError('Passport_Number' , 'required')">Passport Number is required</p>
-                <p class="error" *ngIf="hasError('Passport_Number' , 'pattern')">Passport_Number invalid</p>
+                <p class="error" *ngIf="hasError('Passport_Number' , 'pattern')">Passport Number invalid</p>
             </div>
 
-            <!-- =============== 7 Payment Method ===============  -->
+            <!-- =============== 17 Payment Method ===============  -->
             <div class="control">
                 <label for="Payment_Methods" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
                     Your Payment Methods
@@ -126,15 +175,6 @@
                 </ng-select>
                 <p class="error" *ngIf="hasError('Gender' , 'required')">Payment Methods is required</p>
             </div>
-
-            <!-- =============== 8 First Name ===============  -->
-            <!-- <div class="checkbox ">
-                <input type="checkbox">
-                <label for="checked-checkbox">Remeber me</label>
-            </div> -->
-
-
-
 
 
             <div class="submit-btn w-full">

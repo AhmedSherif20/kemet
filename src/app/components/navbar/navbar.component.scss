@@ -3,6 +3,10 @@
 
   .brand {
     @apply text-4xl tracking-widest uppercase;
+
+    img {
+      @apply max-w-48;
+    }
   }
 
   .links {
@@ -38,7 +42,11 @@
   }
 
   .logo {
-    @apply text-4xl tracking-widest uppercase mx-auto w-fit mt-3 mb-4;
+    @apply mx-auto mt-3 mb-5 block border-b pb-5 px-2;
+
+    img {
+      @apply max-w-full;
+    }
   }
 
   .links {

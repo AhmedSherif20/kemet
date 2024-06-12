@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { SwalAlertService } from './swal-alert.service';
+import { SecureLsService } from './secure-ls.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,15 +16,16 @@ export class UserStatusService {
 
   constructor(
     private router: Router,
-    private swalAlertService: SwalAlertService
+    private swalAlertService: SwalAlertService,
+    private _secureLsService: SecureLsService
   ) {}
 
   setToken(token: string) {
-    localStorage.setItem('token', token);
+    this._secureLsService.encryptData('token', token);
   }
 
   getToken(): string | null {
-    return localStorage.getItem('token');
+    return this._secureLsService.decryptData('token');
   }
 
   isLoggedIn(): boolean {
@@ -31,7 +33,7 @@ export class UserStatusService {
   }
 
   logOut(): void {
-    localStorage.clear();
+    this._secureLsService.removeAllData();
     this.userLogged.next(false);
     this.userToken.next(undefined);
     this.router.navigate(['home']);

@@ -1,0 +1,52 @@
+<section id="agentData">
+    <div class="image">
+        <img [src]="agentData.imageUrl" [alt]="agentData.person_name" [title]="agentData.person_name">
+        <h2>{{agentData.person_name}}</h2>
+    </div>
+
+    <div class="icon-data">
+        <p #tooltip="matTooltip" matTooltip="job title" matTooltipPosition="below">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>{{agentData.job_title}}</span>
+        </p>
+        <p #tooltip="matTooltip" matTooltip="working time" matTooltipPosition="below">
+            <i class="fa-solid fa-clock"></i>
+            <span>{{agentData.job_type}}</span>
+        </p>
+        <p #tooltip="matTooltip" matTooltip="job title" matTooltipPosition="below">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>{{agentData.location}}</span>
+        </p>
+        <p #tooltip="matTooltip" matTooltip="Expected Salary" matTooltipPosition="below">
+            <i class="fa-solid fa-dollar-sign"></i>
+            <span>{{agentData.salary}}</span>
+        </p>
+    </div>
+
+    <p #tooltip="matTooltip" matTooltip="Description Skills" matTooltipPosition="below" class="description">
+        <i class="fa-solid fa-circle-info"></i>
+        <span>{{agentData.job_description}}</span>
+    </p>
+
+
+    <div class="actions">
+        <h3>
+            interested in working with me?
+        </h3>
+
+        <a [href]="whatsappLink" target="_blank" class=" outline-none">
+            <img src="../../../../../assets/images/WhatsAppButtonGreenLarge.svg" alt="contact via whatsapp">
+        </a>
+
+        <a [href]="'tel:'+agentData.contact_phone" class="btn-blue">
+            <i class="fa-solid fa-phone-volume me-1"></i>
+            contact via telephone
+        </a>
+
+        <a [href]="'mailto:'+agentData.contact_email" class="btn-gold">
+            <i class="fa-solid fa-envelope me-1"></i>
+            contact via email
+        </a>
+
+    </div>
+</section>

@@ -6,6 +6,7 @@ import { SwalAlertService } from 'src/app/services/swal-alert.service';
 import { AuthApiService } from '../../services/auth-api.service';
 import { firstValueFrom } from 'rxjs';
 import { UserStatusService } from 'src/app/services/user-status.service';
+import { SecureLsService } from 'src/app/services/secure-ls.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,8 @@ export class LoginComponent {
     private swalAlertService: SwalAlertService,
     private router: Router,
     private authApiService: AuthApiService,
-    private userStatusService: UserStatusService
+    private userStatusService: UserStatusService,
+    private _SecureLsService: SecureLsService
   ) {}
 
   hasError(control: string, validator: string): boolean {
@@ -56,13 +58,12 @@ export class LoginComponent {
 
     const userData = this.loginForm.value;
 
-    console.log('userData ==>', userData);
-
     const loginResponse: any = await firstValueFrom(
       this.authApiService.userLogin(userData)
     );
 
     if (loginResponse['status'] == 'success') {
+      this._SecureLsService.encryptData('userId', loginResponse['user_id']);
       this.userStatusService.userLogged.next(true);
       this.userStatusService.userToken.next(loginResponse['token']);
       this.userStatusService.setToken(loginResponse['token']);

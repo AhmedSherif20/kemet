@@ -1,5 +1,5 @@
 #searchQueries {
-  @apply container grid grid-cols-4 gap-x-4 my-3;
+  @apply container grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 my-3;
 
   .box {
     @apply bg-opacity-80 p-3 rounded-md relative text-white capitalize;
@@ -9,7 +9,7 @@
     }
 
     p {
-      @apply font-medium mb-2 text-base;
+      @apply font-medium mb-2 text-base tracking-widest;
     }
 
     h3 {
@@ -42,7 +42,7 @@
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5;
 
     .hotel-card {
-      @apply mb-3 border border-gold  rounded-md overflow-hidden;
+      @apply mb-3 border border-gold  rounded-md overflow-hidden mx-auto;
 
       .image {
         @apply overflow-hidden min-h-[225px] h-[225px] max-h-[225px];
@@ -113,4 +113,12 @@
       }
     }
   }
+}
+
+.no-hotels {
+  @apply md:text-3xl text-blue font-semibold capitalize text-center tracking-wider my-5 min-h-[50vh] flex justify-center items-center;
+}
+
+.pagination-btns {
+  @apply col-span-4 flex justify-center items-center my-4;
 }

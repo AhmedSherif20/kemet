@@ -5,7 +5,7 @@
 </header>
 
 <!-- if have events -->
-<ng-container *ngIf="allEvents.length && !loading">
+<ng-container *ngIf="allEvents.length  && !loading">
     <!-- search input -->
     <div class="relative w-[540px] max-w-[100%] mx-auto mb-5">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -24,33 +24,42 @@
 
     <!-- displayed events -->
     <div class="events" id="events">
-        <a [routerLink]="'/events/'+event.id" class="event" *ngFor="let event of displayedEvents | paginate: { itemsPerPage: 8
-        , currentPage: p }">
-            <div class="cover" #tooltip="matTooltip" [matTooltip]="event.event_name" matTooltipPosition="before">
-                <img [src]="event.image_url"
-                    (error)="event.image_url = 'https://source.unsplash.com/random/?city,night'" alt="">
-            </div>
+        <ng-container *ngIf="displayedEvents.length">
+            <a [routerLink]="'/events/'+event.id" class="event" *ngFor="let event of displayedEvents | paginate: { itemsPerPage: 8
+                , currentPage: p }">
+                <div class="cover" #tooltip="matTooltip" [matTooltip]="event.event_name" matTooltipPosition="before">
+                    <img [src]="event.image_url"
+                        (error)="event.image_url = 'https://images.unsplash.com/photo-1599431728652-3f654a277661?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'"
+                        alt="">
+                </div>
 
-            <div class="info">
-                <div class="date">
-                    <!-- <span>{{event.date | date: 'dd'}}</span>
-                <span>{{event.date | date: 'MMM' }}</span> -->
-                    <span>{{event.event_datetime | date: "dd"}}</span>
-                    <span>{{event.event_datetime | date: "MMM"}}</span>
+                <div class="info">
+                    <div class="date">
+                        <!-- <span>{{event.date | date: 'dd'}}</span>
+                        <span>{{event.date | date: 'MMM' }}</span> -->
+                        <span>{{event.event_datetime | date: "dd"}}</span>
+                        <span>{{event.event_datetime | date: "MMM"}}</span>
+                    </div>
+                    <div>
+                        <h2>{{event.event_name}}</h2>
+                        <p><i class="fa-solid fa-location-dot"></i> {{event.location}}</p>
+                    </div>
                 </div>
-                <div>
-                    <h2>{{event.event_name}}</h2>
-                    <p><i class="fa-solid fa-location-dot"></i> {{event.location}}</p>
-                </div>
-            </div>
-        </a>
-        <pagination-controls (pageChange)="NgxPagination($event)" class="text-center w-full"></pagination-controls>
+            </a>
+            <pagination-controls (pageChange)="NgxPagination($event)" class="text-center w-full"></pagination-controls>
+        </ng-container>
+        <ng-container *ngIf="!displayedEvents.length">
+            <h2 class="no-events">No Coming event Match Your Search</h2>
+        </ng-container>
+
     </div>
 </ng-container>
 
 <ng-container *ngIf="!allEvents.length && !loading">
     <h2 class="no-events">No Coming event till now, please check it later thank you</h2>
 </ng-container>
+
+
 
 <!-- loader -->
 <ng-container *ngIf="loading">

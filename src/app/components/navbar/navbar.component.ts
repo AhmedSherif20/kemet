@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import { UserStatusService } from 'src/app/services/user-status.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class NavbarComponent implements OnInit {
       icon: 'fa-hotel',
     },
     {
-      path: 'jobs',
+      path: 'crew',
       label: 'crew',
       icon: 'fa-briefcase',
     },
@@ -39,25 +40,49 @@ export class NavbarComponent implements OnInit {
       icon: 'fa-hand-holding-dollar',
     },
     {
-      path: 'contact us',
-      label: 'contact us',
-      icon: 'fa-headset',
+      path: 'find-nearest',
+      label: 'Find Nearest',
+      icon: 'fa-map',
     },
+    // {
+    //   path: 'userX',
+    //   label: 'contact us',
+    //   icon: 'fa-headset',
+    // },
   ];
 
   showNav: boolean = false;
 
   userLogged: boolean = false;
 
-  constructor(private userStatusService: UserStatusService) {}
+  constructor(
+    private userStatusService: UserStatusService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {
     this.userStatusService.userLogged.subscribe((res) => {
       this.userLogged = res ?? false;
     });
+
+    this.checkRouteChanging();
   }
 
   userLogOut() {
     this.userStatusService.logOut();
+  }
+
+  userProfile(): void {
+    console.log('hiiiiiiiiii');
+
+    // this._router.navigate(['/user']);
+  }
+
+  checkRouteChanging(): void {
+    this._router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        this.showNav = false;
+      }
+    });
   }
 }

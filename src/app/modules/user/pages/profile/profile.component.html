@@ -1,0 +1,190 @@
+<ng-container *ngIf="userData && !loading">
+    <section id="userProfile">
+        <div class="wrapper">
+            <div class="header">
+                <div class="left">
+                    <img [src]="userData.Profile_Picture" alt=""
+                        (error)="userData.Profile_Picture='https://t3.ftcdn.net/jpg/05/16/27/58/360_F_516275801_f3Fsp17x6HQK0xQgDQEELoTuERO4SsWV.jpg'">
+
+                    <h2>
+                        <span>{{userData.First_Name + ' ' + userData.Last_Name}}</span>
+                        <span>{{userData.email && userData.email.length ? userData.email :'email@email.com'}}</span>
+                    </h2>
+                </div>
+                <div class="right">
+                    <button class="btn-blue" (click)="controlEditMode(editMode ? 'de' : 'en')">
+                        {{editMode ? 'Cancel Edit' : 'Edit Profile'}}
+                    </button>
+                </div>
+            </div>
+
+            <form [formGroup]="userForm" class="data">
+                <!-- =============== 1 First Name ===============  -->
+                <div class="control">
+                    <label for="First_Name">First Name</label>
+                    <input type="text" id="First_Name" placeholder="John" formControlName="First_Name" />
+                    <p class="error" *ngIf="hasError('First_Name' , 'required')">First name is required</p>
+                </div>
+
+                <!-- =============== 2 Last Name ===============  -->
+                <div class="control">
+                    <label for="Last_Name">Last Name</label>
+                    <input type="text" id="Last_Name" placeholder="Micheal" formControlName="Last_Name" />
+                    <p class="error" *ngIf="hasError('Last_Name' , 'required')">Last name is required</p>
+                </div>
+
+                <!-- =============== 6 Phone Number ===============  -->
+                <div class="control">
+                    <label for="Phone_Number">Phone Number</label>
+                    <input type="text" id="Phone_Number" placeholder="Ex: 002 0123456789"
+                        formControlName="Phone_Number" />
+                    <p class="error" *ngIf="hasError('Phone_Number' , 'required')">Phone Number is required</p>
+                    <p class="error" *ngIf="hasError('Phone_Number' , 'pattern')">Phone Number invalid</p>
+                </div>
+
+                <!-- =============== 7 Address ===============  -->
+                <div class="control">
+                    <label for="Address">Address</label>
+                    <input type="text" id="Address" placeholder="**********" formControlName="Address" />
+                    <p class="error" *ngIf="hasError('Address' , 'required')">Address is required</p>
+                </div>
+
+                <!-- =============== 8 Country ===============  -->
+                <div class="control">
+                    <label for="Country">Country</label>
+                    <ng-select appearance="outline" [searchable]="true" [clearable]="true" labelForId="Country"
+                        formControlName="Country">
+                        <ng-option [value]="country" *ngFor="let country of countryList">
+                            <span class="capitalize">{{country}}</span>
+                        </ng-option>
+                    </ng-select>
+                    <p class="error" *ngIf="hasError('Country' , 'required')">Country is required</p>
+                </div>
+
+                <!-- =============== 9 Date of birth ===============  -->
+                <div class="control">
+                    <label for="Date_of_Birth">Date of birth</label>
+                    <input type="date" id="Date_of_Birth" placeholder="12/12/2020" formControlName="Date_of_Birth" />
+                    <p class="error" *ngIf="hasError('Date_of_Birth' , 'required')">Date of birth is required</p>
+                </div>
+
+                <!-- =============== 10 Gender ===============  -->
+                <div class="control">
+                    <label for="Gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Select Your gender
+                    </label>
+                    <ng-select appearance="outline" [searchable]="false" [clearable]="true" labelForId="Gender"
+                        formControlName="Gender">
+                        <ng-option value="male">
+                            Male
+                        </ng-option>
+                        <ng-option value="female">
+                            Female
+                        </ng-option>
+                    </ng-select>
+                    <p class="error" *ngIf="hasError('Gender' , 'required')">Gender is required</p>
+                </div>
+
+                <!-- =============== 11 Arrival Date ===============  -->
+                <div class="control">
+                    <label for="arrival_time">Arrival Date</label>
+                    <input type="datetime-local" id="arrival_time" placeholder="12/12/2020"
+                        formControlName="arrival_time" />
+                    <p class="error" *ngIf="hasError('arrival_time' , 'required')">Arrival Date is required</p>
+                </div>
+
+                <!-- =============== 12 departure Date ===============  -->
+                <div class="control">
+                    <label for="departure_time">departure Date</label>
+                    <input type="datetime-local" id="departure_time" placeholder="12/12/2020"
+                        formControlName="departure_time" />
+                    <p class="error" *ngIf="hasError('departure_time' , 'required')">departure Date is required</p>
+                </div>
+
+                <!-- =============== 13 Arrival Airport ===============  -->
+                <div class="control">
+                    <label for="arrival_airport">Arrival Airport</label>
+                    <ng-select appearance="outline" [searchable]="true" [clearable]="true" labelForId="arrival_airport"
+                        formControlName="arrival_airport">
+                        <ng-option [value]="airport" *ngFor="let airport of airportList">
+                            <span class="capitalize">{{airport}}</span>
+                        </ng-option>
+                    </ng-select>
+                    <p class="error" *ngIf="hasError('arrival_airport' , 'required')">Arrival Airport is required</p>
+                </div>
+
+                <!-- =============== 14 departure Airport ===============  -->
+                <div class="control">
+                    <label for="departure_airport">departure Airport</label>
+                    <ng-select appearance="outline" [searchable]="true" [clearable]="true"
+                        labelForId="departure_airport" formControlName="departure_airport">
+                        <ng-option [value]="airport" *ngFor="let airport of egyptAirportList">
+                            <span class="capitalize">{{airport}}</span>
+                        </ng-option>
+                    </ng-select>
+                    <p class="error" *ngIf="hasError('departure_airport' , 'required')">departure Airport is required
+                    </p>
+                </div>
+
+                <!-- =============== 15 Profile Picture ===============  -->
+                <div class="control">
+                    <label for="Profile_Picture">Profile Picture</label>
+                    <input type="text" id="Profile_Picture" placeholder="paste photo url"
+                        formControlName="Profile_Picture" />
+                    <p class="error" *ngIf="hasError('Profile_Picture' , 'pattern')">Profile Picture invalid</p>
+
+                </div>
+
+                <!-- =============== 16 Passport Number ===============  -->
+                <div class="control">
+                    <label for="Passport_Number">Passport Number</label>
+                    <input type="text" id="Passport_Number" placeholder="Ex: 002 0123456789"
+                        formControlName="Passport_Number" />
+                    <p class="error" *ngIf="hasError('Passport_Number' , 'required')">Passport Number is required</p>
+                    <p class="error" *ngIf="hasError('Passport_Number' , 'pattern')">Passport Number invalid</p>
+                </div>
+
+                <!-- =============== 17 Payment Method ===============  -->
+                <div class="control">
+                    <label for="Payment_Methods"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                        Your Payment Methods
+                    </label>
+                    <ng-select appearance="outline" [searchable]="false" [clearable]="true" labelForId="Payment_Methods"
+                        formControlName="Payment_Methods">
+                        <ng-option value="visa">
+                            Visa
+                        </ng-option>
+                        <ng-option value="mastercard">
+                            MasterCard
+                        </ng-option>
+                    </ng-select>
+                    <p class="error" *ngIf="hasError('Gender' , 'required')">Payment Methods is required</p>
+                </div>
+            </form>
+
+            <div class="btns border-t flex justify-end items-center pt-2" *ngIf="editMode">
+                <button class="btn-blue" (click)="updateUserData()">Save Edit</button>
+                <button class="btn-outline-blue" (click)="controlEditMode('de')">Cancel</button>
+            </div>
+        </div>
+    </section>
+</ng-container>
+
+<!-- loader -->
+<ng-container *ngIf="loading">
+    <div class="loading">
+        <div class="spinner">
+            <svg aria-hidden="true" class="w-16 h-16 " viewBox="0 0 100 101" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor" />
+                <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill" />
+            </svg>
+        </div>
+        <p>Loading </p>
+    </div>
+</ng-container>

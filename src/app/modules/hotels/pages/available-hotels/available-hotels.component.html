@@ -1,42 +1,41 @@
-<section id="searchQueries">
+<section id="searchQueries" *ngIf="queryParams">
     <!-- city -->
-    <div class="box green">
+    <a routerLink="/hotels" class="box green">
         <p>City</p>
-        <h3>Alexandria</h3>
+        <h3>{{queryParams.city}}</h3>
 
         <i class="fa-solid fa-location-dot"></i>
-    </div>
+    </a>
     <!-- arrive date -->
     <div class="box blue">
         <p>Arrive Date</p>
-        <h3>5/15/2022</h3>
+        <h3>{{queryParams.arriveDate}}</h3>
 
         <i class="fa-solid fa-plane-arrival"></i>
     </div>
     <!-- leave date -->
     <div class="box yellow">
         <p>Leave Date</p>
-        <h3>5/23/2022</h3>
+        <h3>{{queryParams.leaveDate}}</h3>
 
         <i class="fa-solid fa-plane-departure"></i>
     </div>
     <!-- numbers of guests -->
     <div class="box red">
         <p>numbers of guests</p>
-        <h3>5</h3>
+        <h3>{{queryParams.numOfGuests}}</h3>
 
         <i class="fa-solid fa-users"></i>
     </div>
 </section>
 
 
-<div id="hotels">
+<div id="hotels" *ngIf="displayedHotels.length">
     <div class="container">
         <!-- <h2>Best Hotels </h2> -->
         <div class="hotels-container">
-            <a [routerLink]="'/hotels/details/60d5ec3bcf3de4f5a68f070b'" target="_blank" class="hotel-card" *ngFor="let _ of [].constructor(
-                10
-             ) ">
+            <a [routerLink]="['/hotels/details', hotel.name]" target="_blank" class="hotel-card" *ngFor="let hotel of displayedHotels | paginate: { itemsPerPage: itemPerPage
+                    , currentPage: p }">
                 <div class="image">
                     <img [src]="egyptianHotelImages[getRandomNum(egyptianHotelImages.length-1,0)]" alt="hotel">
                 </div>
@@ -44,29 +43,28 @@
                 <div class="content">
                     <div class="title">
                         <h2>
-                            {{famousHotelsInEgypt[getRandomNum(famousHotelsInEgypt.length-1,0)]}}
+                            {{hotel.name}}
                         </h2>
                         <p>
                             <i class="fa-solid fa-location-dot"></i>
-                            {{citiesArr[getRandomNum(citiesArr.length,0)]}}
+                            {{hotel.location}}
                         </p>
                     </div>
                     <div class="info">
                         <p>
                             <span>Start From</span>
-                            <span>{{getRandomNum(1000,10000)}} EGP</span>
+                            <span>{{hotel.pricePerNight}} $$</span>
                         </p>
                         <p>
-                            <span>{{hotelReview[getRandomNum(0,6)]}}</span>
+                            <span>{{hotel.review}}</span>
                             <span>
-                                <i class="fa-solid fa-star text-gold" *ngFor="let _ of [].constructor(
-                                    getRandomNum(5,1)
-                                )"></i>
+                                <i class="fa-solid fa-star text-gold"
+                                    *ngFor="let _ of [].constructor(hotel.rating)"></i>
                             </span>
                         </p>
                     </div>
                     <p class="description">
-                        {{descriptionSlicer(descDemo)}} ....
+                        {{descriptionSlicer(hotel.description)}} ....
                     </p>
 
                     <div class="btns">
@@ -76,6 +74,15 @@
                 </div>
 
             </a>
+            <div class="pagination-btns">
+                <pagination-controls (pageChange)="NgxPagination($event)"
+                    class="text-center w-full"></pagination-controls>
+            </div>
+
         </div>
     </div>
 </div>
+
+<ng-container *ngIf="!displayedHotels.length">
+    <h2 class="no-hotels">No Available Hotels till now, please check it later thank you</h2>
+</ng-container>

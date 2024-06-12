@@ -33,6 +33,23 @@ const routes: Routes = [
       import('./modules/hotels/hotels.module').then((m) => m.HotelsModule),
   },
   {
+    path: 'user',
+    loadChildren: () =>
+      import('./modules/user/user.module').then((m) => m.UserModule),
+  },
+  {
+    path: 'crew',
+    loadChildren: () =>
+      import('./modules/crew/crew.module').then((m) => m.CrewModule),
+  },
+  {
+    path: 'find-nearest',
+    loadChildren: () =>
+      import('./modules/find-nearest/find-nearest.module').then(
+        (m) => m.FindNearestModule
+      ),
+  },
+  {
     path: 'currency',
     loadChildren: () =>
       import('./modules/currency/currency.module').then(

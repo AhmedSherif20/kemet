@@ -37,8 +37,6 @@ export class AllEventsComponent implements OnInit {
 
       if (eventsApi['events'] && eventsApi['events'].length) {
         this.allEvents = eventsApi['events'];
-        console.log(this.allEvents);
-
         this.displayEvents();
         this.loading = false;
       } else {

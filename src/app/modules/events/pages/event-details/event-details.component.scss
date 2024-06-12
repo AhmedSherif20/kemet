@@ -1,7 +1,7 @@
 #cover {
   @apply hidden lg:block relative h-[70vh] overflow-hidden bg-cover bg-center;
 
-  background-image: url(../../../../../assets/images/events/evDetailsCover.jpg);
+  background-image: url(../../../../../assets/images/events/evDetailsCover.webp);
 
   .layout {
     @apply absolute inset-0 bg-black bg-opacity-70;

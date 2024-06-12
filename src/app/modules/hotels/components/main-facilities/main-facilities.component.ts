@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
+import { IHotelFacilities } from 'src/app/interfaces';
 
-interface IHotelFacilities {
-  icon: string;
-  name: string;
-}
 @Component({
   selector: 'app-main-facilities',
   templateUrl: './main-facilities.component.html',

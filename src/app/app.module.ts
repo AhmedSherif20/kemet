@@ -12,6 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MaterialModule } from './modules/material/material.module';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { OfflineComponent } from './pages/offline/offline.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { MaterialModule } from './modules/material/material.module';
     FooterComponent,
     NavbarComponent,
     TopbarComponent,
+    OfflineComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { MaterialModule } from './modules/material/material.module';
     SweetAlert2Module.forRoot(),
     NgxPaginationModule,
     MaterialModule,
+    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

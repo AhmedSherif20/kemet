@@ -1,0 +1,38 @@
+#placesPage {
+  @apply py-3 min-h-[50vh];
+
+  .header {
+    //   @apply flex items-center justify-start flex-wrap;
+
+    h2 {
+      @apply text-blue text-center mb-3 text-4xl font-bold;
+    }
+
+    .places {
+      @apply flex justify-center items-center flex-wrap border-t border-b py-3;
+      .place {
+        @apply text-gold cursor-pointer;
+
+        i {
+          @apply me-0.5;
+        }
+
+        span {
+          @apply font-medium;
+        }
+      }
+    }
+  }
+
+  .mapTitle {
+    @apply mb-2 text-2xl text-blue capitalize font-semibold mt-4;
+
+    span {
+      @apply text-gold font-bold;
+    }
+  }
+
+  .noPlaceMsg {
+    @apply text-4xl text-blue text-center mt-10 font-medium capitalize;
+  }
+}

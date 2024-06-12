@@ -1,0 +1,60 @@
+header {
+  @apply bg-blue h-32 md:h-48 lg:h-80 bg-cover bg-center relative mb-8;
+
+  background-image: url("../../../../../assets/images/crew/crew_bg.webp");
+
+  .layout {
+    @apply absolute inset-0 bg-black bg-opacity-80 text-white flex justify-center items-center flex-col;
+
+    h2 {
+      @apply text-3xl md:text-4xl lg:text-6xl font-medium uppercase tracking-widest mb-3;
+    }
+
+    p {
+      @apply font-medium text-sm capitalize;
+    }
+  }
+}
+
+.crew {
+  @apply container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
+
+  .agent-card {
+    @apply overflow-hidden rounded-md shadow-md cursor-pointer;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    .image {
+      @apply w-full h-[300px] overflow-hidden;
+
+      img {
+        @apply object-cover transition-all;
+      }
+    }
+
+    .info {
+      @apply text-center py-3 border-t;
+
+      h2 {
+        @apply text-gray-800 text-2xl font-semibold transition-all;
+      }
+      p {
+        @apply text-sm;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+
+      .image img {
+        @apply scale-[1.1];
+      }
+
+      .info h2 {
+        @apply text-blue tracking-widest;
+      }
+    }
+  }
+}

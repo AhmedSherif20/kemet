@@ -1,7 +1,9 @@
 <nav id="mainNav">
-    <div class="brand">
-        <h1>KEMET</h1>
-    </div>
+    <a routerLink="/" class="brand">
+
+        <img src="assets/images/logo.png" alt="kemet">
+
+    </a>
 
     <div class="links">
         <!-- <a routerLink="home" routerLinkActive="active">Home</a> -->
@@ -12,7 +14,7 @@
     <div class="hidden lg:block ms-auto lg:ms-0">
         <button *ngIf="!this.userLogged" class="btn-outline-blue" routerLink="/auth/login">Login</button>
 
-        <button *ngIf="this.userLogged" class="btn-outline-blue " routerLink="/" #tooltip="matTooltip"
+        <button *ngIf="this.userLogged" class="btn-outline-blue " routerLink="/user" #tooltip="matTooltip"
             [matTooltip]="'user profile'" matTooltipPosition="below">
             <i class="fa-solid fa-user"></i>
         </button>
@@ -30,7 +32,11 @@
 </nav>
 
 <section id="sideNav" [class]="showNav ? 'show' : null">
-    <h2 class="logo">KEMET</h2>
+    <a routerLink="/" class="logo">
+
+        <img src="assets/images/logo.png" alt="kemet">
+
+    </a>
 
     <div class="links">
         <a *ngFor="let link of links" routerLinkActive="active" [routerLink]="link.path">
@@ -39,14 +45,15 @@
         </a>
     </div>
 
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center mt-5 border-t pt-5">
 
         <button *ngIf="!this.userLogged" class="btn-outline-blue" routerLink="/auth/login">Login</button>
 
-        <button *ngIf="this.userLogged" class="btn-outline-blue" routerLink="/" #tooltip="matTooltip"
-            [matTooltip]="'user profile'" matTooltipPosition="below" title="user profile">
+        <button *ngIf="userLogged" routerLink="/user/profile" class="btn-outline-blue" #tooltip="matTooltip"
+            [matTooltip]="'User Profile'" matTooltipPosition="below" title="User Profile">
             <i class="fa-solid fa-user"></i>
         </button>
+
         <button *ngIf="this.userLogged" class="btn-outline-blue" #tooltip="matTooltip" [matTooltip]="'log out'"
             matTooltipPosition="below" (click)='userLogOut()' title="logout">
             <i class="fa-solid fa-right-from-bracket"></i>

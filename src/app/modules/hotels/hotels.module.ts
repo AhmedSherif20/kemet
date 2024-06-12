@@ -11,6 +11,7 @@ import { RoomsSuitesComponent } from './components/rooms-suites/rooms-suites.com
 import { MainFacilitiesComponent } from './components/main-facilities/main-facilities.component';
 import { LocalAmenitiesComponent } from './components/local-amenities/local-amenities.component';
 import { HotelBookingComponent } from './components/hotel-booking/hotel-booking.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HotelBookingComponent } from './components/hotel-booking/hotel-booking.
     ReactiveFormsModule,
     NgSelectModule,
     FormsModule,
+    NgxPaginationModule,
   ],
 })
 export class HotelsModule {}

@@ -1,0 +1,58 @@
+#userProfile {
+  @apply bg-gray-200 py-5;
+
+  .wrapper {
+    @apply w-[725px] max-w-full bg-white mx-auto p-5 rounded-md;
+  }
+
+  .header {
+    @apply border-b pb-2 flex items-center justify-between;
+
+    .left {
+      @apply flex items-center gap-x-4;
+
+      img {
+        @apply w-24 h-24 rounded-full object-cover border-2 border-blue p-[0.5];
+      }
+
+      h2 {
+        span {
+          @apply block;
+
+          &:first-of-type {
+            @apply font-bold text-lg tracking-wider capitalize text-blue;
+          }
+          &:last-of-type {
+            @apply text-sm;
+          }
+        }
+      }
+    }
+  }
+
+  .data {
+    @apply mt-5 mb-3 grid grid-cols-1 md:grid-cols-2 gap-4;
+  }
+}
+
+.control {
+  @apply mb-6 w-full relative;
+
+  label {
+    @apply block mb-2  text-sm font-medium text-gray-900 capitalize after:content-['*'] after:text-red-600 after:ms-1 after:font-bold;
+  }
+
+  input {
+    @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue focus:border-blue block w-full p-2.5 outline-none;
+  }
+
+  .error {
+    @apply text-sm capitalize text-red-600 font-medium text-center mb-0;
+  }
+
+  &.password {
+    i {
+      @apply text-blue absolute right-3 top-10 cursor-pointer;
+    }
+  }
+}
