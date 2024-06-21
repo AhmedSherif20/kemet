@@ -14,10 +14,10 @@ export class WeatherSearchComponent implements OnInit {
   weatherData: any;
   loading: boolean = true;
   constructor(
-    private _ActivatedRoute: ActivatedRoute,
+    private _activatedRoute: ActivatedRoute,
     private _Router: Router,
     private _WeatherApiService: WeatherApiService,
-    private _SwalAlertService: SwalAlertService
+    private _swalAlertService: SwalAlertService
   ) {}
 
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class WeatherSearchComponent implements OnInit {
   }
 
   async getCityWeather(): Promise<any> {
-    this.cityName = this._ActivatedRoute.snapshot.params['city'];
+    this.cityName = this._activatedRoute.snapshot.params['city'];
     if (!this.cityName) this._Router.navigate(['/weather']);
 
     this.weatherData = await firstValueFrom(
@@ -34,7 +34,7 @@ export class WeatherSearchComponent implements OnInit {
       if (!this.weatherData) {
         this.loading = false;
         this._Router.navigate(['/weather']);
-        this._SwalAlertService.fireAlert(
+        this._swalAlertService.fireAlert(
           'error',
           'error',
           'City Name Incorrect!'

@@ -21,7 +21,7 @@ export class AllEventsComponent implements OnInit {
   constructor(
     private _EventsApiService: EventsApiService,
     private _Router: Router,
-    private _SwalAlertService: SwalAlertService
+    private _swalAlertService: SwalAlertService
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +44,7 @@ export class AllEventsComponent implements OnInit {
       }
     } catch (error) {
       // this._Router.navigate(['/']);
-      this._SwalAlertService.fireAlert(
+      this._swalAlertService.fireAlert(
         'error',
         'something happen wrong',
         'please try again later'

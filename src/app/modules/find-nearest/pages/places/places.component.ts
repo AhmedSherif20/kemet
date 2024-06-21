@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
-interface Place {
-  name: string;
-  type: string;
-  icon: string;
-}
+import { IPlace } from 'src/app/interfaces';
+
 @Component({
   selector: 'app-places',
   templateUrl: './places.component.html',
   styleUrls: ['./places.component.scss'],
 })
 export class PlacesComponent {
-  placesTypes: Place[] = [
+  placesTypes: IPlace[] = [
     { name: 'Restaurants', type: 'restaurant', icon: 'fas fa-utensils' },
     { name: 'Cafes', type: 'cafe', icon: 'fas fa-coffee' },
     { name: 'Bars', type: 'bar', icon: 'fas fa-glass-martini' },
@@ -32,7 +29,7 @@ export class PlacesComponent {
     {
       name: 'Shopping Malls',
       type: 'shopping_mall',
-      icon: 'fas fa-shopping-mall',
+      icon: 'fas fa-bag-shopping',
     },
     { name: 'Gyms', type: 'gym', icon: 'fas fa-dumbbell' },
     { name: 'Churches', type: 'church', icon: 'fas fa-church' },

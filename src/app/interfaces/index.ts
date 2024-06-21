@@ -92,3 +92,9 @@ export interface IAgent {
   updated_at: string;
   imageUrl?: string;
 }
+
+export interface IPlace {
+  name: string;
+  type: string;
+  icon: string;
+}

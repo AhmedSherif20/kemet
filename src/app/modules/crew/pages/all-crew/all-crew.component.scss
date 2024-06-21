@@ -58,3 +58,7 @@ header {
     }
   }
 }
+
+.no-events {
+  @apply md:text-3xl text-blue font-semibold capitalize text-center tracking-wider my-5;
+}

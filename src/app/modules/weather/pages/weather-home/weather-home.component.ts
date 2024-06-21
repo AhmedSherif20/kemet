@@ -13,7 +13,7 @@ export class WeatherHomeComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private _SwalAlertService: SwalAlertService
+    private _swalAlertService: SwalAlertService
   ) {}
 
   ngOnInit(): void {}
@@ -21,7 +21,7 @@ export class WeatherHomeComponent implements OnInit {
   getCityValue() {
     const cityName: string = this.searchInput.value;
     if (!cityName) {
-      this._SwalAlertService.fireAlert(
+      this._swalAlertService.fireAlert(
         'warning',
         'city name required',
         'please try again!'

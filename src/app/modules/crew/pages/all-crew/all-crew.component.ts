@@ -21,7 +21,7 @@ export class AllCrewComponent implements OnInit {
   itemPerPage: number = 1;
   constructor(
     private _crewApiService: CrewApiService,
-    private _SwalAlertService: SwalAlertService,
+    private _swalAlertService: SwalAlertService,
     private _responsiveService: ResponsiveService,
     public dialog: MatDialog
   ) {}
@@ -46,13 +46,13 @@ export class AllCrewComponent implements OnInit {
         this.loading = false;
       }
     } catch (error: any) {
-      this._SwalAlertService.fireAlert(
+      this._swalAlertService.fireAlert(
         'error',
         error.error.message ?? 'something happen wrong',
         'please try again later'
       );
       this.loading = false;
-      this.displayedCrew.length = 0;
+      this.displayedCrew = [];
     }
   }
 
@@ -127,7 +127,7 @@ export class AllCrewComponent implements OnInit {
       this.allCrew.find((agent: IAgent) => agent.job_id === id) ?? undefined;
 
     if (!agentData) {
-      this._SwalAlertService.fireAlert(
+      this._swalAlertService.fireAlert(
         'error',
         `can't find agent data`,
         'please try again later'

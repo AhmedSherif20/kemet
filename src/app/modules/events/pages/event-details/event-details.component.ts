@@ -27,7 +27,7 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private _eventsApiService: EventsApiService,
-    private _SwalAlertService: SwalAlertService
+    private _swalAlertService: SwalAlertService
   ) {}
 
   ngOnInit(): void {
@@ -59,7 +59,7 @@ export class EventDetailsComponent implements OnInit, OnDestroy {
       this.loading = false;
     } catch (error) {
       this.router.navigate(['/events']);
-      this._SwalAlertService.fireAlert(
+      this._swalAlertService.fireAlert(
         'error',
         'event not found',
         'please try again later'

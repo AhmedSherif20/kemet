@@ -4,13 +4,20 @@ import { HostListener, Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ResponsiveService {
+  /**
+   * Listens for the window resize event and calculates the number of items
+   * to display per page based on the current window width.
+   *
+   * @returns {number} The number of items to display per page.
+   */
   @HostListener('window:resize')
   getItemPerPage(): number {
     let itemPerPage: number;
 
+    // Get the current window width
     const windowWidth = window.innerWidth;
 
-    // Perform actions based on window width
+    // Determine the number of items per page based on window width
     if (windowWidth <= 639) {
       itemPerPage = 1;
     } else if (windowWidth >= 640 && windowWidth <= 767) {
@@ -22,7 +29,7 @@ export class ResponsiveService {
     } else if (windowWidth >= 1280 && windowWidth <= 1535) {
       itemPerPage = 4;
     } else {
-      itemPerPage = 4; // Default value
+      itemPerPage = 4;
     }
 
     return itemPerPage;
