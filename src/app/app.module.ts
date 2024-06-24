@@ -14,6 +14,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MaterialModule } from './modules/material/material.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { OfflineComponent } from './pages/offline/offline.component';
+import { MobileAppBannerComponent } from './components/mobile-app-banner/mobile-app-banner.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { OfflineComponent } from './pages/offline/offline.component';
     NavbarComponent,
     TopbarComponent,
     OfflineComponent,
+    MobileAppBannerComponent,
   ],
   imports: [
     BrowserModule,
