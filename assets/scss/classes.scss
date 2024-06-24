@@ -1,2 +1,9 @@
 @import "./btns.scss";
 @import "./loader.scss";
+
+.svg-bg {
+  @apply fixed hidden 2xl:block  top-[170px] left-[30px] w-[375px];
+}
+.svg-bg2 {
+  @apply fixed hidden 2xl:block top-[170px] right-[30px] w-[375px];
+}
