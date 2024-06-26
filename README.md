@@ -1,6 +1,6 @@
 # Kemet
 
-[Live Demo](https://ahmedsherif20.github.io/kemet/home)
+[Live Demo](https://ahmedsherif20.github.io/kemet/home){:target="\_blank"}
 
 ## Table of Contents
 
