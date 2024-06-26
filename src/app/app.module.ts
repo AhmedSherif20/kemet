@@ -15,6 +15,8 @@ import { MaterialModule } from './modules/material/material.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { OfflineComponent } from './pages/offline/offline.component';
 import { MobileAppBannerComponent } from './components/mobile-app-banner/mobile-app-banner.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { MobileAppBannerComponent } from './components/mobile-app-banner/mobile-
     TopbarComponent,
     OfflineComponent,
     MobileAppBannerComponent,
+    NotFoundComponent,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,

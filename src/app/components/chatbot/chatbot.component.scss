@@ -1,0 +1,30 @@
+#chatbot {
+  @apply fixed bottom-14 right-4 z-[999];
+
+  .chatbot-box {
+    @apply bg-white w-96 h-[400px] rounded-md mb-3 px-2 flex flex-col justify-between border shadow-lg;
+    .header {
+      @apply py-2 border-b flex items-center justify-start flex-row gap-x-1;
+
+      img {
+        @apply w-5 me-1;
+      }
+    }
+
+    .messages {
+      @apply overflow-y-scroll py-2 px-1 min-h-[300px];
+
+      .message {
+        @apply mb-2;
+      }
+    }
+
+    .send-message {
+      @apply border-t;
+    }
+  }
+
+  .chatbot-icon {
+    @apply w-14 h-14 cursor-pointer rounded-full flex justify-center items-center text-white text-3xl bg-blue border-2 border-gold ms-auto;
+  }
+}

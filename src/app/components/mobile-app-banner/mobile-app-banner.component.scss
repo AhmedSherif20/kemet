@@ -19,11 +19,11 @@
 
     .left {
       h3 {
-        @apply text-white text-3xl tracking-widest mb-4 font-bold items-center;
+        @apply text-white text-xl lg:text-3xl tracking-widest mb-4 font-bold items-center;
       }
 
       p {
-        @apply mt-4 mb-8 text-white;
+        @apply mt-4 mb-8 text-white text-sm md:text-base;
       }
 
       .links {
