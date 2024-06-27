@@ -17,6 +17,7 @@ import { OfflineComponent } from './pages/offline/offline.component';
 import { MobileAppBannerComponent } from './components/mobile-app-banner/mobile-app-banner.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ChatbotComponent } from './components/chatbot/chatbot.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ChatbotComponent } from './components/chatbot/chatbot.component';
     NgxPaginationModule,
     MaterialModule,
     GoogleMapsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

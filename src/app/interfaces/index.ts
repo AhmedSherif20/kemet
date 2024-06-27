@@ -98,3 +98,9 @@ export interface IPlace {
   type: string;
   icon: string;
 }
+
+export interface IMessage {
+  from: 'bot' | 'user';
+  time: Date;
+  message: string;
+}

@@ -35,6 +35,14 @@ export class SecureLsService {
   }
 
   /**
+   * Removes data from local storage based on the provided key.
+   * @param key The key of the data to remove from local storage.
+   */
+  removeData(key: string): void {
+    this.ls.remove(key);
+  }
+
+  /**
    * Removes all data from local storage.
    */
   removeAllData(): void {

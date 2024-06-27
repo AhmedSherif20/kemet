@@ -4,24 +4,27 @@
         <div class="header">
             <img src="favicon.ico" alt="">
             <h4>
-                Kemet ChatBot
+                Kemet Chatbot
             </h4>
             <span class="w-3 h-3 bg-green-500 rounded-full border-2 border-white inline-block"></span>
         </div>
 
-        <div class="messages">
+        <div class="messages" id="messages">
 
-            <div class="message flex items-start gap-2.5" *ngFor="let item of [].constructor(1)">
-                <img class="w-8 h-8 rounded-full" src="favicon.ico" alt="Kemet">
+            <div class="message slide-right flex items-start gap-2.5" *ngFor="let message of messages">
+                <div class="w-9">
+                    <img class="w-8 h-8 rounded-full" src="favicon.ico" alt="Kemet" *ngIf="message.from == 'bot'">
+                    <i class="fa-solid fa-user" *ngIf="message.from == 'user'"></i>
+                </div>
                 <div
                     class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 bg-gray-100 rounded-e-xl rounded-es-xl ">
-                    <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                        <span class="text-sm font-semibold text-gray-900 ">Kemet</span>
-                        <span class="text-sm font-normal text-gray-500 ">{{currentTime | date : 'shortTime'}}</span>
+                    <div class="flex items-center space-x-2 rtl:space-x-reverse capitalize tracking-wider">
+                        <span class="text-sm font-semibold text-gray-900 ">{{message.from == 'bot' ? 'kemet' :
+                            'you'}}</span>
+                        <span class="text-sm font-normal text-gray-500 ">{{message.time| date : 'shortTime'}}</span>
                     </div>
                     <p class="text-sm font-normal py-2.5 text-gray-900 ">
-                        Welcome to Kemet Chatbot,
-                        We're here to assist you. How can we help you today?
+                        {{message.message ?? 'message unavailable'}}
                     </p>
                     <!-- <span class="text-sm font-normal text-gray-500 ">Delivered</span> -->
                 </div>
@@ -30,22 +33,24 @@
 
         </div>
 
-        <form class="send-message">
+        <div class="send-message">
             <label for="chat" class="sr-only">Your message</label>
             <div class="flex items-center py-2 rounded-lg bg-gray-50 ">
-                <textarea id="chat" rows="1"
+                <textarea (keyup.enter)="sendMessage('user',sendMessageInput.value)" [formControl]="messageControl"
+                    #sendMessageInput id="chat" rows="2"
                     class="block  p-2.5 w-full max-h-10 text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 outline-blue"
                     placeholder="Your message..."></textarea>
-                <button class="inline-flex justify-center p-2 text-blue rounded-full cursor-pointer hover:bg-gold ">
+                <button (click)="sendMessage('user',sendMessageInput.value)"
+                    class="inline-flex justify-center p-2 text-blue rounded-full cursor-pointer hover:bg-gold ">
                     <svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" viewBox="0 0 18 20">
                         <path
                             d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
                     </svg>
-                    <span class="sr-only">Send message</span>
+                    <!-- <span class="sr-only">Send message</span> -->
                 </button>
             </div>
-        </form>
+        </div>
     </div>
 
     <div class="chatbot-icon" #tooltip="matTooltip" [matTooltip]="!showChat ?'Talk To Kemet Chatbot': 'Close Chatbot'"

@@ -1,5 +1,5 @@
 #userProfile {
-  @apply bg-gray-200 py-5;
+  @apply bg-gray-200 py-5 overflow-hidden;
 
   .wrapper {
     @apply w-[725px] max-w-full bg-white mx-auto p-5 rounded-md;
